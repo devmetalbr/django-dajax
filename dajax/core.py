@@ -1,4 +1,4 @@
-from django.utils import simplejson as json
+import json
 
 
 class Dajax(object):
@@ -13,7 +13,9 @@ class Dajax(object):
         self.calls.append({'cmd': 'alert', 'val': message})
 
     def assign(self, id, attribute, value):
-        self.calls.append({'cmd': 'as', 'id': id, 'prop': attribute, 'val': value})
+        self.calls.append({
+            'cmd': 'as', 'id': id, 'prop': attribute, 'val': value
+        })
 
     def add_css_class(self, id, value):
         if not hasattr(value, '__iter__'):
@@ -26,10 +28,14 @@ class Dajax(object):
         self.calls.append({'cmd': 'remcc', 'id': id, 'val': value})
 
     def append(self, id, attribute, value):
-        self.calls.append({'cmd': 'ap', 'id': id, 'prop': attribute, 'val': value})
+        self.calls.append({
+            'cmd': 'ap', 'id': id, 'prop': attribute, 'val': value
+        })
 
     def prepend(self, id, attribute, value):
-        self.calls.append({'cmd': 'pp', 'id': id, 'prop': attribute, 'val': value})
+        self.calls.append({
+            'cmd': 'pp', 'id': id, 'prop': attribute, 'val': value
+        })
 
     def clear(self, id, attribute):
         self.calls.append({'cmd': 'clr', 'id': id, 'prop': attribute})
@@ -45,3 +51,4 @@ class Dajax(object):
 
     def add_data(self, data, function):
         self.calls.append({'cmd': 'data', 'val': data, 'fun': function})
+
