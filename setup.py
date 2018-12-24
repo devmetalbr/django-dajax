@@ -28,5 +28,5 @@ setup(
                 'Operating System :: OS Independent',
                 'Programming Language :: Python',
                 'Topic :: Utilities'],
-    python_requires='>=3.6.7'
+    python_requires='>=3.6.5'
 )
